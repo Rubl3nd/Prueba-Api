@@ -1,0 +1,14 @@
+CREATE DATABASE shop;
+
+
+USE shop;
+
+CREATE TABLE productS(
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(180),
+    description VARCHAR(255),
+    price DECIMAL(6,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+DESC products;
