@@ -1,14 +1,15 @@
-CREATE DATABASE shop;
+CREATE DATABASE ng_games;
 
+USE ng_games;
 
-USE shop;
-
-CREATE TABLE productS(
+CREATE TABLE game (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(180),
+    title VARCHAR(180),
     description VARCHAR(255),
-    price DECIMAL(6,2),
+    image VARCHAR(200),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DESC products;
+RENAME TABLE game to games;
+
+DESCRIBE game;
