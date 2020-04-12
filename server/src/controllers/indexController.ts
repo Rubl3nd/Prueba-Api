@@ -1,11 +1,10 @@
-import { Request, Response } from 'express';
+import {Request, Response} from 'express';
 
-class IndexController {
+class IndexController{
 
-    public index(req: Request, res: Response) {
-        res.json({text: 'API is in /api/games'});
-    }
-
+  public index(req: Request, res: Response) {
+    res.json({text: 'API is in /api/games'});
+}
 }
 
-export const indexController = new IndexController;
+export const indexController= new IndexController();

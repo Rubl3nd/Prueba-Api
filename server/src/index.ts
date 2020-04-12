@@ -1,35 +1,32 @@
-import express, { Application } from 'express';
+import express, {Application} from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-
-import indexRoutes from './routes/indexRoutes';
-import gamesRoutes from './routes/gamesRoutes';
-
+import indexRoutes from './routes/indexRoute';
+import productRoutes from './routes/productRoutes';
 class Server {
 
     public app: Application;
-    
-    constructor() {
-        this.app = express();
+    constructor(){
+        this.app=express();
         this.config();
         this.routes();
     }
-
-    config(): void {
-        this.app.set('port', process.env.PORT || 3000);
-
+    config():void{
+        this.app.set('port',process.env.PORT || 3000);
         this.app.use(morgan('dev'));
         this.app.use(cors());
         this.app.use(express.json());
-        this.app.use(express.urlencoded({extended: false}));
+        this.app.use(express.urlencoded({extended:false}));
     }
 
-    routes(): void {
-        this.app.use('/', indexRoutes);
-        this.app.use('/api/games', gamesRoutes);
+    routes():void{
+        this.app.use(indexRoutes);
+        this.app.use('/api/product',productRoutes);
+
     }
 
-    start() {
+    start():void{
+
         this.app.listen(this.app.get('port'), () => {
             console.log('Server on port', this.app.get('port'));
         });
@@ -37,5 +34,5 @@ class Server {
 
 }
 
-const server = new Server();
+const server= new Server();
 server.start();
